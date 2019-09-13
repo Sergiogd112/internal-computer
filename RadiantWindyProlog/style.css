@@ -1,0 +1,78 @@
+h1{
+	color: black;
+  text-align: center;
+	font-family: arial;
+  font-size: 50px;
+}
+h2{
+	
+
+}
+h3{
+
+}
+h4{
+
+}
+span.download {
+	background: url(download.svg) no-repeat top left;
+	background-size: 100% 100%;
+	cursor: pointer;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+}
+span.config {
+	background: url(config.svg) no-repeat top left;
+	background-size: 100% 100%;
+	cursor: pointer;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+}
+button {
+	position: relative;
+	background-color: rgba(76, 175, 80, 0);
+	border: none;
+	font-size: 28px;
+	color: #FFFFFF;
+	padding: 10px;
+	width: 60px;
+	text-align: center;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	text-decoration: none;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+button:after {
+	content: "";
+	background: #f1f1f1;
+	display: block;
+	position: absolute;
+	padding-top: 300%;
+	padding-left: 350%;
+	margin-left: -20px !important;
+	margin-top: -120%;
+	opacity: 0;
+	transition: all 0.8s
+}
+
+button:active:after {
+	padding: 0;
+	margin: 0;
+	opacity: 1;
+	transition: 0s
+}
+
+body{
+	background-image: url("testimage.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	font-family: arial;
+}
+p{
+
+}
+
