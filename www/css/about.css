@@ -2,7 +2,8 @@
     box-sizing: border-box;
     padding-bottom: 0px;
 }
-html{
+
+html {
     height: 100%;
 }
 
@@ -61,18 +62,21 @@ html{
 .topnav a.active {
     background-color: #41a9f2;
     color: white;
+    align-items: center;
 }
 
 .topnav a.sign {
     background-color: #41a9f2;
     color: white;
     float: right;
+    align-items: center;
 }
 
 .topnav a.sign2 {
     background-color: #333;
     color: white;
     float: right;
+    align-items: center;
 }
 
 body {
@@ -87,7 +91,6 @@ body {
         "blank"
         "About"
         "about";
-
 }
 
 .about {
