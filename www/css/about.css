@@ -75,10 +75,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #faf7f7;
   display: grid;
-  grid-template-row: 1fr 1fr 98fr;
+  grid-template-row: 1fr 1fr 47fr 1fr;
   grid-template-areas: "topnav"
                        "blank"
-                       "About" ;
+                       "About"
+                       "about" ;
 
 
 }
@@ -96,59 +97,7 @@ body {
   float: left;
   padding-left: 1%;
 }
-.graph{
-  float: left;
-  grid-area: graph;
-}
-.longitude{
-  grid-area: longitude;
-}
-.latitude{
-  grid-area: latitude;
-}
-.timezone{
-  grid-area: timezone;
-}
-.icon{
-  grid-area: icon;
-
-}
-.temperature{
-  grid-area: temperature;
-}
-.summary{
-  grid-area: summary;
-}
-.humidity{
-  grid-area: humidity;
-}
-.pressure{
-  grid-area: pressure;
-}
-.opacity{
-  grid-area: opacity;
-}
-.seeing{
-  grid-area: seeing;
-}
-.quality{
-  grid-area: quality;
-}
-.tval{
-  grid-area: tval;
-}
-.hval{
-  grid-area: hval;
-}
-.pval{
-  grid-area: pval;
-}
-.oval{
-  grid-area: oval;
-}
-.sval{
-  grid-area: sval;
-}
-.stars{
-  grid-area: stars;
+.About{
+    grid-area: About;
+    
 }
