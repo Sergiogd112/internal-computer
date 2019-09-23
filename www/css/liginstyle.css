@@ -91,5 +91,7 @@ body {
 .Login{
     grid-area: Login;
     display: grid;
-    grid-template-columns: ;
+    background-color: #41a9f2;
+    border-radius: 1%;
+    padding: 5%;
 }
