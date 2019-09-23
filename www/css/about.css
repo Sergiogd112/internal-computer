@@ -111,4 +111,5 @@ body {
 
 .About {
     grid-area: About;
+    padding: 5%;
 }
