@@ -60,7 +60,7 @@ celestial = tbody.find_elements_by_class_name('celestial-table')
 
 
 print('_' * 100)
-print([x.text for x in celestial])
+#print([x.text for x in celestial])
 bodies = []
 for x in celestial:
     cb = x.get_attribute('textContent').split('\n')
