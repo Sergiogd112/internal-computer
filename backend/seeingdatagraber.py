@@ -59,27 +59,26 @@ text = tbody.text
 celestial = tbody.find_elements_by_class_name('celestial-table')
 
 
-print('_' * 100)
-#print([x.text for x in celestial])
 bodies = []
 for x in celestial:
     cb = x.get_attribute('textContent').split('\n')
     for i in range(len(cb)):
         cb[i] = cb[i].strip()
-    sleep(0.5)
-    bodies.append(x)
-    sleep(0.5)
+    bodies.append(cb)
 
 print(bodies)
 # driver.close()
+data=bodies
+driver.close()
 
 
-print(type(text))
+data = [[cell for cell in row if cell != ''] for row in data]
+
 
 parsedrows = text.split('\n')
 parsedtable = [x.split() for x in parsedrows]
 
-
+print(parsedtable)
 for i in parsedtable:
     if(type(i) == str):
         pass

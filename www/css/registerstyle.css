@@ -80,16 +80,17 @@ body {
     background-color: #faf7f7;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr 2fr 2fr ;
+    grid-template-rows: 1fr 2fr 12fr 2fr ;
     grid-template-areas: "topnav topnav   topnav"
                          ".      .        ."
-                         ".      Login    ."
+                         ".      Register    ."
                          ".      .        .";
 
 }
 
-.Login{
-    grid-area: Login;
-    display: grid;
-    grid-template-columns: ;
+.Register{
+    grid-area: Register;
+    background-color: #41a9f2;
+    border-radius: 1%;
+    padding: 5%;
 }

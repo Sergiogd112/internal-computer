@@ -86,7 +86,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #faf7f7;
     display: grid;
-    grid-template-rows: 2fr 1fr 25fr 2fr;
+    grid-template-rows:1fr 1fr 15fr 1fr;
     grid-template-areas: "topnav"
         "blank"
         "About"
