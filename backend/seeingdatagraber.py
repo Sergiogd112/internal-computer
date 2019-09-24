@@ -56,20 +56,22 @@ sleep(1)
 
 
 text = tbody.text
-celestial = tbody.find_elements_by_class_name('celestial')
+celestial = tbody.find_elements_by_class_name('celestial-table')
 
 
 print('_' * 100)
-print([x for x in celestial])
+print([x.text for x in celestial])
 bodies = []
-# for x in celestial:
-#
-#     sleep(0.5)
-#     bodies.append(x.text)
-#     sleep(0.5)
+for x in celestial:
+    cb = x.get_attribute('textContent').split('\n')
+    for i in range(len(cb)):
+        cb[i] = cb[i].strip()
+    sleep(0.5)
+    bodies.append(x)
+    sleep(0.5)
 
-
-#driver.close()
+print(bodies)
+# driver.close()
 
 
 print(type(text))
