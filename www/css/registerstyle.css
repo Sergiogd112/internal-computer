@@ -94,3 +94,11 @@ body {
     border-radius: 1%;
     padding: 5%;
 }
+input{
+  border-radius: 10px;
+  border:0;
+  padding-left: 1%;
+  width: 80%;
+  height: 5%;
+  font-size: 50%;
+}
