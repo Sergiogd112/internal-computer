@@ -80,7 +80,7 @@ body {
     background-color: #faf7f7;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr 12fr 2fr ;
+    grid-template-rows: 1fr 2fr 20fr 2fr ;
     grid-template-areas: "topnav topnav   topnav"
                          ".      .        ."
                          ".      Register    ."
@@ -110,4 +110,8 @@ input{
     padding-left: 1%;
     width: 80%;
     font-size: 150%%;
+}
+button{
+    border-radius: 10px;
+    border: 0;    
 }
