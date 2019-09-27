@@ -113,7 +113,29 @@ body {
 .graph{
   float: left;
   grid-area: graph;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "temp""rain""seeing";
 }
+.tempg{
+    grid-area: temp;
+    border: red 1px solid;
+    height: 100%;
+    width: 100%;
+}
+.raing{
+    grid-area: rain;
+    border: red 1px solid;
+    height: 100%;
+    width: 100%;
+}
+.seeingg{
+    grid-area: seeing;
+    border: red 1px solid;
+    height: 100%;
+    width: 100%;
+}
+
 .longitude{
   grid-area: longitude;
 }
