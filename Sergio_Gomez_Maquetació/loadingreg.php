@@ -19,6 +19,9 @@ $name=$_POST["name"];
 $username=$_POST["username"];
 $surname=$_POST["surname"];
 $pw=$_POST["password"];
+$str=rand();
+$salt = md5($str);
+$pw=hash('sha256', $pw . $salt);
 $email=$_POST["email"];
 $servername = "localhost";
 $usr = "sgomez";
@@ -28,12 +31,15 @@ $dbname = "sgomez_";
 // Create connection
 $conn = new mysqli($servername, $usr, $pass, $dbname);
 // Check connection
+if ($name=="" or $username=="" or $surname=="" or $pw=="" or $email=="") {
+    header('Location: '.'register.html');
+}
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO user_data (name, password, email,username,surname)
-VALUES ('$name','$pw','$email','$username','$surname')";
+$sql = "INSERT INTO user_data (name, password, email,username,surname,salt)
+VALUES ('$name','$pw','$email','$username','$surname','$salt')";
 
 if ($conn->query($sql) === true) {
     echo "New record created successfully";

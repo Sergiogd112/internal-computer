@@ -14,6 +14,8 @@
 <p>Loading</p>
 </div>
 <?php
+$lname=$_POST["logname"];
+$pss=$_POST["password"]
 
  ?>
 
