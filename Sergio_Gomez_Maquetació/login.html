@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>Login</title>
   <link rel="stylesheet" href="css/liginstyle.css">
-
+  <script src="js/login.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -22,13 +22,14 @@
 
   </div>
 
-  <form class="Login" action="loadinglog.php" method="post">
+  <form class="Login" action="login()" method="post">
     <h1 class="title">Login</h1>
     <h2>username or email</h2>
     <input type="text" name="logname" value="">
     <h2>password</h2>
     <input type="text" name="password" value="">
     <br></br>
+    <p id="error"></p>
     <br></br>
     <br></br>
     <input type="submit" name="" value="Login">

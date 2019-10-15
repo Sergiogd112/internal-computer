@@ -4,22 +4,29 @@
 <head>
   <meta charset="utf-8">
   <title>test</title>
-  <script src="js/test.js" charset="utf-8"></script>
 </head>
 
 <body>
-  <button type="button" name="button" onclick="tester('register.html')">tester</button>
+  <button type="button" name="button" onclick="load()">tester</button>
+  <script type="text/javascript">
+    function process(txt) {
+      return txt;
+    }
+
+    function load() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var resp = this.responseText;
+          var tst = process(resp);
+          console.log(this.responseText);
+
+        }
+      }
+      xhttp.open("GET", 'tst/test.txt', true);
+      xhttp.send();
+    }
+  </script>
 </body>
-<form class="form" action="loading.php" method="post">
-  Name
-  <input type="text" name="name" value="">
-  <br>
-  pass
-  <input type="text" name="password" value="">
-  <br>
-  email
-  <input type="text" name="email" value="">
-  <input type="submit" name="" value="Submit">
-</form>
 
 </html>
