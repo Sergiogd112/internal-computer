@@ -1,4 +1,3 @@
-
 <?php
 $lname=$_POST["logname"];
 $pss=$_POST["password"];
@@ -17,9 +16,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
 $sql = "SELECT * FROM user_data WHERE username='$lname' OR email='$lname'";
-echo $sql;
 $result = $conn->query($sql);
 if ($result->num_rows>0)
 {
@@ -37,7 +34,5 @@ if ($result->num_rows>0)
 
 mysqli_free_result($res);
 
-
-echo "done";
 
  ?>

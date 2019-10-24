@@ -22,12 +22,12 @@
 
   </div>
 
-  <form class="Login" action="login()" method="post">
+  <form id="Login" onsubmit="login(); return false;">
     <h1 class="title">Login</h1>
     <h2>username or email</h2>
     <input type="text" name="logname" value="">
     <h2>password</h2>
-    <input type="text" name="password" value="">
+    <input type="password" name="password" value="">
     <br></br>
     <p id="error"></p>
     <br></br>
