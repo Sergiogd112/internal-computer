@@ -117,32 +117,32 @@ body {
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: "temp""rain""seeing";
 }
-.tempg{
+#tempg{
     grid-area: temp;
     border: red 1px solid;
     height: 100%;
     width: 100%;
 }
-.raing{
+#raing{
     grid-area: rain;
     border: red 1px solid;
     height: 100%;
     width: 100%;
 }
-.seeingg{
+#seeingg{
     grid-area: seeing;
     border: red 1px solid;
     height: 100%;
     width: 100%;
 }
 
-.longitude{
+#longitude{
   grid-area: longitude;
 }
-.latitude{
+#latitude{
   grid-area: latitude;
 }
-.timezone{
+#timezone{
   grid-area: timezone;
 }
 .icon{
@@ -170,21 +170,21 @@ body {
 .quality{
   grid-area: quality;
 }
-.tval{
+#tval{
   grid-area: tval;
 }
-.hval{
+#hval{
   grid-area: hval;
 }
-.pval{
+#pval{
   grid-area: pval;
 }
-.oval{
+#oval{
   grid-area: oval;
 }
-.sval{
+#sval{
   grid-area: sval;
 }
-.stars{
+#stars{
   grid-area: stars;
 }
