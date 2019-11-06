@@ -119,19 +119,16 @@ body {
 }
 #tempg{
     grid-area: temp;
-    border: red 1px solid;
     height: 100%;
     width: 100%;
 }
 #raing{
     grid-area: rain;
-    border: red 1px solid;
     height: 100%;
     width: 100%;
 }
 #seeingg{
     grid-area: seeing;
-    border: red 1px solid;
     height: 100%;
     width: 100%;
 }
@@ -144,6 +141,9 @@ body {
 }
 #timezone{
   grid-area: timezone;
+}
+.modebar{
+      display: none !important;
 }
 .icon{
   grid-area: icon;
