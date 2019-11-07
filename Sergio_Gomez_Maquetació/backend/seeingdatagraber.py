@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 from pprint import pprint
 from collections import OrderedDict

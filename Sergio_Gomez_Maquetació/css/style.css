@@ -152,7 +152,7 @@ body {
 .temperature{
   grid-area: temperature;
 }
-.summary{
+#summary{
   grid-area: summary;
 }
 .humidity{

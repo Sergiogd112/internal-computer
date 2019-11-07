@@ -1,14 +1,15 @@
-
-let mode = 'c';
-
 function load() {
   var tempgraph = document.getElementById('tempg');
   let long;
   let lat;
   let temperatureDegree = document.getElementById('tval');
   let locationTimezone = document.getElementById('timezone');
-  let mode = 'c';
-
+  let summarydiv = document.getElementById('summary');
+  let oval = document.getElementById('oval');
+  let hval = document.getElementById('hval');
+  let pval=document.getElementById('pval')
+  let mode = 'f';
+  let t;
   var d = new Date();
   var h = d.getHours();
   var hours = [];
@@ -49,74 +50,89 @@ function load() {
             temperature,
             humidity,
             summary,
-            icon
+            icon,
+            cloudCover,
+            pressure
           } = data.currently;
+          t = temperature;
+          summarydiv.innerHTML = summary;
+          oval.innerHTML = (cloudCover * 100) + '%';
+          hval.innerHTML = (humidity * 100) + '%';
+          pval.innerHTML=pressure+' hPa'
           let celsius = (temperature - 32) * (5 / 9);
           const hourly = data.hourly.data;
-          console.log(hourly);
           let forecast = [];
-          console.log('in');
-          console.log(hourly[0]);
           let hour = 0;
           let temp = [];
           let precp = [];
-          console.log(data.timezone);
           locationTimezone.innerHTML = data.timezone;
           //--------------------------------------------------------
           for (i of hourly) {
             temp[hour] = i.temperature;
-            precp[hour] = i.precipProbability;
+            precp[hour] = i.precipProbability*100;
             if (hour > 24) {
               break
             }
             hour += 1;
           }
-          console.log(temp);
-          //display the forecast
+          tempc = [];
+          for (i = 0; i < 24; i++) {
+            tempc[i] = Math.floor((temp[i] - 32) * (5 / 9) * 10) / 10;
+            temp[i] = Math.floor(temp[i] * 10) / 10
+          }
+
+
           var trace1 = {
             x: hours,
-            y: temp,
+            y: precp,
             line: {
-              color: 'rgb(219, 64, 82)',
+              color: '#1E90FF',
               width: 3
             },
-            margin: 0
           };
           var layout = {
+            title:'Rain forecast',
+
             margin: {
               l: 50,
               r: 50,
               b: 50,
               t: 50,
               pad: 4
+            },
+            yaxis: {
+              ticksuffix: '%',
+              autotick: false,
+              ticks: 'outside',
+              tick0: 0,
+              dtick: 10,
+              ticklen: 8,
+              tickwidth: 4,
+              tickcolor: '#000',
+              range:[0,100]
             }
           };
-          var trace2 = {
-            x: hours,
-            y: precp,
-            type: 'scatter'
-          };
+          document.getElementById('raing').innerHTML='';
+          Plotly.newPlot('raing', [trace1], layout);
 
-          var data = [trace1];
-          tempgraph.innerHTML = '';
-          Plotly.newPlot('tempg', [trace1], layout);
-          tempgraph.addEventListener('click', () => {
-            if (true) {
 
-            } else {
 
-            }
-          });
+
+
+          //display the forecast
+          console.log(mode, temp, tempc, celsius, t);
+          mode = changetmode(mode, temp, tempc, celsius, t);
           // Set DOM Elements from the API
-          temperatureDegree.innerHTML = Math.floor(celsius) + 'ºC';
           //setIcons(data.currently.icon, document.querySelector('.icon'));
 
           //Formula for celsius
           //Change temperature to celsius/farenheit
           temperatureDegree.addEventListener('click', () => {
-            mode=changetmode(mode,celsius,temperature);
+            mode = changetmode(mode, temp, tempc, celsius, t);
           })
-
+          tempgraph.addEventListener('click', () => {
+            mode = changetmode(mode, temp, tempc, celsius, t);
+          })
         });
 
 
@@ -135,24 +151,85 @@ function load() {
     return skycons.set(iconID, Skycons[currentIcon]);
 
   }
-}
 
-function changetmode(mode, data,celsius,temperature) {
-  var tempgraph = document.getElementById('tempg');
-  let long;
-  let lat;
-  let temperatureDegree = document.getElementById('tval');
-  if (mode == "f") {
-    temperatureDegree.innerHTML = Math.floor(celsius) + 'ºC';
-    for (i = 0; i < 24; i++) {
-      console.log((data[i] - 32) * (5 / 9););
+  function changetmode(mode, data, datac, celsius, temperature) {
+    console.log(mode, data, datac, celsius, temperature);
+
+    tempgraph.innerHTML = '';
+
+    if (mode == "f") {
+      temperatureDegree.innerHTML = Math.floor(celsius) + 'ºC';
+      console.log(datac);
+      var trace1 = {
+        x: hours,
+        y: datac,
+        line: {
+          color: 'rgb(219, 64, 82)',
+          width: 3
+        },
+      };
+      var layout = {
+        margin: {
+          l: 50,
+          r: 50,
+          b: 50,
+          t: 50,
+          pad: 4
+        },
+        yaxis: {
+          ticksuffix: 'ºC',
+          autotick: false,
+          ticks: 'outside',
+          tick0: 0,
+          dtick: 2.5,
+          ticklen: 8,
+          tickwidth: 4,
+          tickcolor: '#000',
+
+        }
+      };
+
+      Plotly.newPlot('tempg', [trace1], layout);
+
+
+      return 'c';
+
+
+    } else {
+      temperatureDegree.innerHTML = Math.floor(temperature) + 'ºF';
+      console.log(mode, ':', data);
+      var trace1 = {
+        x: hours,
+        y: data,
+        line: {
+          color: 'rgb(219, 64, 82)',
+          width: 3
+        },
+        //        hoverinfo: ‘y+text’
+      };
+      var layout = {
+        margin: {
+          l: 50,
+          r: 50,
+          b: 50,
+          t: 50,
+          pad: 4
+        },
+        yaxis: {
+          ticksuffix: 'ºF',
+          autotick: false,
+          ticks: 'outside',
+          tick0: 0,
+          dtick: 2.55,
+          ticklen: 8,
+          tickwidth: 4,
+          tickcolor: '#000',
+        }
+      };
+      Plotly.newPlot('tempg', [trace1], layout);
+      return 'f';
+
     }
-    return 'c';
-
-
-  } else {
-    temperatureDegree.innerHTML = Math.floor(temperature) + 'ºF';
-    return'f';
 
   }
 
