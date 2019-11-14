@@ -1,0 +1,83 @@
+
+.menu {
+  width: 25%;
+  float: top;
+  padding: 15px;
+  border: 1px  red;
+
+}
+.
+
+
+.menubutton{
+  width: 10%;
+  float: top;
+  padding: 3px;
+}
+
+.topnav {
+  background-color: rgb(20,20,20);
+  overflow: hidden;
+  grid-area: topnav;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 1% 1%;
+    text-decoration: none;
+    font-size: 75%;
+    height: 100%;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.sign2:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.sign:hover {
+    background-color: #98cef5;
+    color: black;
+}
+.topnav a.active:hover {
+    background-color: #98cef5;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: rgb(1, 1, 60);
+    color: white;
+}
+
+.topnav a.sign {
+    background-color: rgb(1, 1, 60);
+    color: white;
+    float: right;
+}
+
+.topnav a.sign2 {
+    background-color: #333;
+    color: white;
+    float: right;
+}
+body{
+  background-color: black;
+  color: rgb(100, 153, 255);
+}
+input {
+  border-radius: 10px;
+  border: 0;
+  padding-left: 1%;
+  width: 80%;
+  font-size: 150%%;
+  background-color: black;
+  color: darkturquoise;
+}

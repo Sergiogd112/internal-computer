@@ -2,37 +2,41 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <title>Contact</title>
-    <link rel="stylesheet" href="css/contactsyle.css">
-
+  <meta charset="utf-8">
+  <title>Contact</title>
+  <link rel="stylesheet" href="css/contactsyle.css">
+  <link rel="stylesheet" href="css/main.css">
+<script src="js/contact.js" charset="utf-8"></script>
 </head>
 
 <body>
-    <div class="topnav">
-        <a class="active" href="index.html">Home</a>
-        <a href="topcities.html">Ranking</a>
+  <div class="topnav">
+    <a class="active" href="index.html">Home</a>
+    <a href="topcities.html">Ranking</a>
 
 
-        <a href="about.html">About</a>
+    <a href="about.html">About</a>
 
-        <a class="sign" href="register.html">Register</a>
-        <a class="sign" href="login.html">Login</a>
-        <a class="sign2" href="contact.html">Contact</a>
+    <a class="sign" href="register.html">Register</a>
+    <a class="sign" href="login.html">Login</a>
+    <a class="sign2" href="contact.html">Contact</a>
 
-    </div>
-    <div class="Contact">
-        <h1 class="title">Contact</h1>
-        <h2>Email</h2>
-        <input type="text" name="username" value="">
-        <h2>Name</h2>
-        <input type="text" name="name" value="">
-        <h2>Surname</h2>
-        <input type="text" name="surname" value="">
-        <h2>Message</h2>
-        <textarea class="Message" name="Message" cols="40" rows="5" value=""></textarea>
-        <br></br>
-        <button type="button" name="Send">Send</button>
+  </div>
+  <form id="Contact" action="send()">
+    <h1 class="title">Contact</h1>
+    <h2>Email</h2>
+    <input type="text" name="username" value="">
+    <h2>Name</h2>
+    <input type="text" name="name" value="">
+    <h2>Surname</h2>
+    <input type="text" name="surname" value="">
+    <h2>Message</h2>
+    <textarea name="message" cols="50" rows="10"id='Message'></textarea>
+    <br></br>
+    <input type="submit" name="Send" value="Send">
+    <p id="error"></p>
+    <br><br>
+  </form>
 </body>
 
 </html>
