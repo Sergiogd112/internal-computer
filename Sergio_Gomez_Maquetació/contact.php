@@ -11,14 +11,11 @@
   <script src="js/topnav.js" charset="utf-8"></script>
 </head>
 
-<body>
+<body onload="mainload()">
   <div class="topnav" w3-include-html="embeds/topnav.html">
   </div>
   <div id="Contact" w3-include-html="embeds/contactform.html">
   </div>
-  <script>
-  includeHTML();
-  </script>
 </body>
 
 </html>

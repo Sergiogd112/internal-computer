@@ -1,24 +1,25 @@
-function home() {
-  window.location.href = "./index.php";
+var user = localStorage.getItem('name');
+var salt = localStorage.getItem('salt');
 
+function goto(page) {
+  if((user!=null) && (salt!=null)){
+    if (page.includes('.php')) {
+      window.location.href = "./"+page+"";
+      console.log(user);
+    }else{
+      window.location.href = "./"+page+"";
+
+    }
+
+  }
 }
-function rank() {
-  window.location.href = "./topcities.php";
-
+function navtype() {
+  if (user!=null) {
+    document.getElementsByTagName('body').innerHTML.replace('embeds/topnav.html','embeds/topnavloged.html');
+    console.log('changingnav');
+  }
 }
-function about() {
-  window.location.href = "./about.php";
-
-}
-function cont() {
-  window.location.href = "./contact.php";
-
-}
-function login() {
-  window.location.href = "./login.html";
-
-}
-function register() {
-  window.location.href = "./register.html";
-
+function mainload() {
+  navtype();
+  includeHTML();
 }
