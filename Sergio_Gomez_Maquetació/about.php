@@ -12,8 +12,8 @@
 </head>
 
 <body>
-  <div class="topnav"w3-include-html="topnav.html">
-  </div>
+  <div class="topnav"w3-include-html="embeds/topnav.html">
+</div>
     <div class="About">
         <h1>About Astroweather</h1>
         <p>This is a project for IB computer science internal assesment. The objective of this platform is to show meteorological data about astronomical observation in a user friendly manner.

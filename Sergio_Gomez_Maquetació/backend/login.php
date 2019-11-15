@@ -23,15 +23,19 @@ if ($result->num_rows>0)
   $row=$result->fetch_assoc();
   $salt=$row['salt'];
   $pw=hash('sha256', $pss . $salt);
+  $resp=[];
   if($row['password']==$pw){
-    echo "1";
+    $resp['satus']=1;
+    $resp['user']=$lname;
+    $resp['salt']=$salt;
   }else{
-    echo "0";
+    $resp['satus']=0;
+
   }
 }else {
-  echo "2";
+    $resp['satus']=2;
 }
-
+echo json_encode($resp);
 mysqli_free_result($res);
 
 

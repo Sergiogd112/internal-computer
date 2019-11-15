@@ -19,8 +19,8 @@
 </head>
 
 <body>
-    <div class="topnav"w3-include-html="topnav.html">
-    </div>
+  <div class="topnav"w3-include-html="embeds/topnav.html">
+</div>
     <div id='map'>
 
     </div>

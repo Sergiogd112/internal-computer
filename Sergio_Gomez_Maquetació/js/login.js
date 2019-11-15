@@ -4,8 +4,9 @@ function login() {
   xhttp.onreadystatechange = function() {
     console.log('in');
     if (this.readyState == 4 && this.status == 200) {
-      var resp = this.responseText;
-      data=json
+      var data = this.responseText;
+      data=JSON.parse(data);
+      var resp=''+data[status];
       if (resp == '0') {
         console.log(0)
         document.getElementById('error').innerHTML = 'username/email or password incorrect';

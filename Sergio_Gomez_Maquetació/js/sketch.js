@@ -1,11 +1,10 @@
-// Daniel Shiffman
+// Based on:Daniel Shiffman
 // http://codingtra.in
 // http://patreon.com/codingtrain
-
+//
 // Subscriber Mapping Visualization
 // https://youtu.be/Ae73YY_GAU8
-
-
+// Adapted tovisualize request on the home page
 const mappa = new Mappa('Leaflet');
 let trainMap;
 let canvas;
