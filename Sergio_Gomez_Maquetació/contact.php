@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/contactsyle.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/contact.js" charset="utf-8"></script>
+  <script src="js/include.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -14,7 +15,9 @@
   </div>
   <div id="Contact" w3-include-html="embeds/contactform.html">
   </div>
-
+  <script>
+  includeHTML();
+  </script>
 </body>
 
 </html>

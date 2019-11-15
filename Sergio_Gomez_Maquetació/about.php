@@ -8,6 +8,7 @@
 
 
     <link rel="stylesheet" href="css/about.css">
+    <script src="js/include.js" charset="utf-8"></script>
 
 </head>
 
@@ -26,6 +27,9 @@
       <div class="copyright">
         &copy; 2019 Sergio Gómez all rights reserved
       </div>
+      <script>
+      includeHTML();
+      </script>
 </body>
 
 </html>

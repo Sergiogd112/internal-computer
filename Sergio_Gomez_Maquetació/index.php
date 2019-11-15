@@ -13,6 +13,7 @@
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="js/skycons2.js" charset="utf-8"></script>
   <script src="js/test.js" charset="utf-8"></script>
+  <script src="js/include.js" charset="utf-8"></script>
 </head>
 <body onload="load()">
   <div class="topnav"w3-include-html="embeds/topnav.html">
@@ -59,7 +60,9 @@
     </div>
 
   </div>
-
+  <script>
+  includeHTML();
+  </script>
 </body>
 
 </html>
