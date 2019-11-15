@@ -13,7 +13,11 @@ function login() {
       } else if (resp == '1') {
         // Simulate a mouse click:
         console.log('correct!!!!');
+        localStorage.setitem('name',data['user'])
+        localStorage.setitem('salt',data['salt'])
+
         window.location.href = "index.html";
+
       }else{
         console.log('2')
         document.getElementById('error').innerHTML = 'unable to login';
