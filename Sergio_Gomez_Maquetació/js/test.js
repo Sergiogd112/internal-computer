@@ -37,7 +37,7 @@ function load() {
       const meteobluebase = `https://www.meteoblue.com/en/weather/api/show/apikey/d9edb6a08987&lat=${lat}&lon=${long}&asl=15`;
       const apidark = `${proxy}https://api.darksky.net/forecast/b9dd7cda13788fa81e8c8062c4aedc28/${lat},${long}`;
       console.log('in')
-      sendloc(Math.round(lat * 100) / 100, Math.round(long * 100) / 100)
+      sendloc(Math.round(lat * 10), Math.round(long * 10));
       document.getElementById('longitude').innerHTML = "Longitude: " + (Math.round(long * 100) / 100);
       document.getElementById('latitude').innerHTML = "Latitude: " + Math.round(lat * 100) / 100;
       header = new Headers();
@@ -76,7 +76,7 @@ function load() {
           let temp = [];
           let precp = [];
           let qs = [];
-          locationTimezone.innerHTML = 'Timezone: '+data.timezone;
+          locationTimezone.innerHTML = 'Timezone: ' + data.timezone;
           //--------------------------------------------------------
           for (i of hourly) {
             temp[hour] = i.temperature;
@@ -336,18 +336,12 @@ function setq(q) {
 
 function sendloc(lat, lon) {
   console.log('inf');
-  data = {
-    lat: lat,
-    lon: lon
-  };
-  data = JSON.stringify(data);
-  console.log(data);
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     console.log('in');
     if (this.readyState == 4 && this.status == 200) {
       var resp = this.responseText;
-      console.log(resp);
+      console.log('resp:', resp);
       if (resp[0] == '1') {
         // Simulate a mouse click:
         console.log('sended');
@@ -360,5 +354,6 @@ function sendloc(lat, lon) {
   }
 
   xhttp.open("POST", "backend/city.php", true);
-  xhttp.send(data);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("lat=" + lat + "&lon=" + lon);
 }

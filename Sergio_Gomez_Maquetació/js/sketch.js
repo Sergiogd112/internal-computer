@@ -5,65 +5,45 @@
 // Subscriber Mapping Visualization
 // https://youtu.be/Ae73YY_GAU8
 
-let youtubeData;
-let countries;
 
 const mappa = new Mappa('Leaflet');
 let trainMap;
 let canvas;
 
-let data = [];
-
+let loc;
 const options = {
   lat: 0,
   lng: 0,
-  zoom: 1.5,
+  zoom: 3.2,
   style: "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
 }
 
-function preload() {
-  youtubeData = loadTable('js/subscribers_geo.csv', 'header');
-  //youtubeData = loadTable('watch_time_geo.csv', 'header');
-  countries = loadJSON('js/countries.json');
-
-}
-
 function setup() {
-  canvas = createCanvas(screen.width,screen.height/2);
+  fetch('backend/map.php').then(data => {
+    return data.json();
+  })
+  .then(data => {
+  canvas = createCanvas(screen.width, screen.height);
   trainMap = mappa.tileMap(options);
   trainMap.overlay(canvas);
-
+  loc=data;
   let maxSubs = 0;
   let minSubs = Infinity;
-
-  for (let row of youtubeData.rows) {
-    let country = row.get('country_id').toLowerCase();
-    let latlon = countries[country];
-    if (latlon) {
-      let lat = latlon[0];
-      let lon = latlon[1];
-      // let count = Number(row.get('views'));
-      // let count = Number(row.get('watch_time_minutes'));
-      let count = Number(row.get('subscribers'));
-      data.push({
-        lat,
-        lon,
-        count
-      });
-      if (count > maxSubs) {
-        maxSubs = count;
-      }
-      if (count < minSubs) {
-        minSubs = count;
-      }
+  for (row in data) {
+    count = data[row].count;
+    if (count > maxSubs) {
+      maxSubs = count;
+    }
+    if (count < minSubs) {
+      minSubs = count;
     }
   }
 
+
   let minD = sqrt(minSubs);
   let maxD = sqrt(maxSubs);
-
-  for (let country of data) {
-    country.diameter = map(sqrt(country.count), minD, maxD, 1, 20);
+  for (d in data) {
+    data[d].diameter = map(sqrt(data[d].count), minD, maxD, 1, 15);
   }
 
   //console.log(data);
@@ -72,16 +52,17 @@ function setup() {
 
   // console.log(countries);
   //console.log(youtubeData);
+});
 }
 
 function draw() {
   clear();
-  for (let country of data) {
-    const pix = trainMap.latLngToPixel(country.lat, country.lon);
-    fill(frameCount % 255, 0, 200, 100);
+  for (country in loc) {
+    const pix = trainMap.latLngToPixel(loc[country].lat/10.0, loc[country].lon/10.0);
+    fill(255, 0, 200, 100);
     const zoom = trainMap.zoom();
     const scl = pow(2, zoom); // * sin(frameCount * 0.1);
-    ellipse(pix.x, pix.y, country.diameter * scl);
+    ellipse(pix.x, pix.y, loc[country].diameter * scl);
   }
 
 

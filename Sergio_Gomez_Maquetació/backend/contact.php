@@ -11,10 +11,11 @@ $pass = "sgomez";
 $dbname = "sgomez_";
 
 
-
+echo 'connecting';
 // Create connection
 $conn = new mysqli($servername, $usr, $pass, $dbname);
 // Check connection
+echo "checking connection";
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
