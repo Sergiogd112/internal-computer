@@ -5,6 +5,7 @@ function login() {
     console.log('in');
     if (this.readyState == 4 && this.status == 200) {
       var resp = this.responseText;
+      data=json
       if (resp == '0') {
         console.log(0)
         document.getElementById('error').innerHTML = 'username/email or password incorrect';
@@ -20,6 +21,6 @@ function login() {
     }
   }
 
-  xhttp.open("POST", "login.php", true);
+  xhttp.open("POST", "backend/login.php", true);
   xhttp.send(new FormData(formElement));
 }

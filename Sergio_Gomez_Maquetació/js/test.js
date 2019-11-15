@@ -342,12 +342,6 @@ function sendloc(lat, lon) {
     if (this.readyState == 4 && this.status == 200) {
       var resp = this.responseText;
       console.log('resp:', resp);
-      if (resp[0] == '1') {
-        // Simulate a mouse click:
-        console.log('sended');
-      } else {
-        console.log('nothing')
-        console.log(resp);
 
       }
     }
