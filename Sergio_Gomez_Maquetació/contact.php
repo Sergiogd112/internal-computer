@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/main.css">
   <script src="js/contact.js" charset="utf-8"></script>
   <script src="js/include.js" charset="utf-8"></script>
+  <script src="js/topnav.js" charset="utf-8"></script>
 </head>
 
 <body>

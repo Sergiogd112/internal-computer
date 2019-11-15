@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="css/about.css">
     <script src="js/include.js" charset="utf-8"></script>
+    <script src="js/topnav.js" charset="utf-8"></script>
 
 </head>
 

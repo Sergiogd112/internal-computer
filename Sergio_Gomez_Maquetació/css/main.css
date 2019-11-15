@@ -69,6 +69,7 @@
     float: right;
 }
 body{
+  margin: 0;
   background-color: black;
   color: rgb(100, 153, 255);
 }

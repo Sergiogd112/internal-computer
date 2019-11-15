@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mappa-mundi@0.0.4"></script>
     <script src="js/include.js" charset="utf-8"></script>
+    <script src="js/topnav.js" charset="utf-8"></script>
 <meta charset="utf-8" />
 <script src="js/sketch.js"></script>
 

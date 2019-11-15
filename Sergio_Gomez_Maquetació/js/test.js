@@ -19,15 +19,13 @@ function load() {
     hours[i] = ((h + i) % 24) + ':00';
     i = i + 1
   }
-  console.log(hours);
-  console.log(temperatureDegree);
   const proxy2 = 'https://corsproxy.github.io/';
   const proxy = `https://cors-anywhere.herokuapp.com/`;
   fetch('https://www.meteoblue.com/en/server/search/query3?query=basel').then(locdata => {
     return locdata.json();
   }).then(locdata => {
     console.log(locdata);
-  })
+  });
 
 
   if (navigator.geolocation) {
@@ -299,10 +297,9 @@ function load() {
 
     }
 
-  }
 
 }
-
+}
 function getq(ws, wg, cc, pp, vb) {
   ws *= 1.60934;
   wg *= 1.60934;
@@ -343,11 +340,11 @@ function sendloc(lat, lon) {
       var resp = this.responseText;
       console.log('resp:', resp);
 
-      }
     }
   }
 
-  xhttp.open("POST", "backend/city.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("lat=" + lat + "&lon=" + lon);
+
+xhttp.open("POST", "backend/city.php", true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("lat=" + lat + "&lon=" + lon);
 }

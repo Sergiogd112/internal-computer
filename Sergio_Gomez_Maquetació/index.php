@@ -14,8 +14,10 @@
   <script src="js/skycons2.js" charset="utf-8"></script>
   <script src="js/test.js" charset="utf-8"></script>
   <script src="js/include.js" charset="utf-8"></script>
+  <script src="js/topnav.js" charset="utf-8"></script>
 </head>
-<body onload="load()">
+<body onload="load();  includeHTML();
+">
   <div class="topnav"w3-include-html="embeds/topnav.html">
 </div>
 
@@ -60,9 +62,6 @@
     </div>
 
   </div>
-  <script>
-  includeHTML();
-  </script>
 </body>
 
 </html>
