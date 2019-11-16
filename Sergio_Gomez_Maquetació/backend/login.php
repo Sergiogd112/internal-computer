@@ -25,7 +25,7 @@ if ($result->num_rows>0)
   $pw=hash('sha256', $pss . $salt);
   $resp=[];
   if($row['password']==$pw){
-    $resp['satus']=1;
+    $resp['status']=1;
     $resp['user']=$lname;
     $resp['salt']=$salt;
   }else{

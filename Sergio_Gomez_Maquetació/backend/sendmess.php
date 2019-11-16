@@ -20,9 +20,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO `Contact` (`name`, `surname`, `email`, `message`) VALUES ($name, $sname, $lname, $mess)";
+$sql = "INSERT INTO `Contact` (`name`, `surname`, `email`, `message`) VALUES ('$name', '$sname', '$lname', '$mess')";
+echo $sql;
 $res = $conn->query($sql);
+echo $res;
+
 mysqli_free_result($res);
 echo 1;
-
- ?>
+?>

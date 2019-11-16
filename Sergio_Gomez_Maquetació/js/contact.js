@@ -1,6 +1,6 @@
 function send() {
   console.log('inf');
-  form=document.getElementById('Contact');
+  form=document.getElementById('Contactform');
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     console.log('in');
@@ -8,18 +8,22 @@ function send() {
       var resp = this.responseText;
       console.log(resp);
       alert(resp);
-      if (resp == '1') {
+      if (resp.includes('1')) {
         // Simulate a mouse click:
         alert('correct!!!!');
       }else{
         console.log('0')
-        document.getElementById('error').innerHTML = 'unable to login';
+        document.getElementById('error').innerHTML = 'unable to send the message';
 
       }
     }
   }
-
-  xhttp.open("POST", "backend/contact.php", true);
-  xhttp.send(new FormData(form));
+  var url="backend/sendmess.php";
+  if(document.URL.includes('btx')){
+    url='https://btx.aula-ee.com/sgomez/internal-computer/Sergio_Gomez_Maquetació/'+url;
+  }
+  xhttp.open("POST", url, true);
+  formd=new FormData(form);
+  xhttp.send(formd);
   return false;
 }

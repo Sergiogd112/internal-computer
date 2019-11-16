@@ -4,8 +4,7 @@ var salt = localStorage.getItem('salt');
 function goto(page) {
   if ((user != null) && (salt != null)) {
     if (page.includes('.php')) {
-      window.location.href =  page + "";
-      console.log(page);
+      window.location.href =  page + "?user="+user+"&salt="+salt;
     } else {
       window.location.href = page + "";
 
@@ -20,13 +19,15 @@ function goto(page) {
 }
 
 function navtype() {
+  user = localStorage.getItem('name')
   if (user != null) {
-    document.getElementsByTagName('body').innerHTML.replace('embeds/topnav.html', 'embeds/topnavloged.html');
-    console.log('changingnav');
+    var body=document.body;
+    text=body.innerHTML.replace('embeds/topnav.html', 'embeds/topnavloged.html');
+    body.innerHTML=text;
   }
 }
 
-function mainload() {
+async function mainload() {
   navtype();
   includeHTML();
 }
