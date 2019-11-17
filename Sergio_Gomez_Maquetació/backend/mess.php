@@ -15,7 +15,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM Contact WHERE id>$start AND id<$end";
+$sql = "SELECT * FROM Contact";
 $result = $conn->query($sql);
 $data=[];
 if ($result) {
@@ -23,6 +23,7 @@ if ($result) {
         $d=[];
         $d['name']=$row['name'];
         $d['surname']=$row['surname'];
+        $d['email']=$row['email'];
         $d['mess']=$row['message'];
         $data[$row['id']]=$d;
     }

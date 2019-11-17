@@ -4,15 +4,15 @@ var salt = localStorage.getItem('salt');
 function goto(page) {
   if ((user != null) && (salt != null)) {
     if (page.includes('.php')) {
-      window.location.href =  page + "?user="+user+"&salt="+salt;
+      window.location.href = page + "?user=" + user + "&salt=" + salt;
     } else {
       window.location.href = page + "";
 
     }
 
-  }else{
+  } else {
 
-      window.location.href = page + "";
+    window.location.href = page + "";
 
 
   }
@@ -21,9 +21,20 @@ function goto(page) {
 function navtype() {
   user = localStorage.getItem('name')
   if (user != null) {
-    var body=document.body;
-    text=body.innerHTML.replace('embeds/topnav.html', 'embeds/topnavloged.html');
-    body.innerHTML=text;
+    var body = document.getElementById('topnav');
+
+      text =`    <a class="acive" onclick="goto('index.html')">Home</a>
+          <a onclick="goto('topcities.html')">Ranking</a>
+
+
+          <a onclick="goto('about.html')">About</a>
+
+          <a class="sign" onclick="logout()">Logout</a>
+
+          <a class="sign2" onclick="goto('contact.php')">Contact</a>`;
+      body.innerHTML = text;
+      console.log(text);
+
   }
 }
 

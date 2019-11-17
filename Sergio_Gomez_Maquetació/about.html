@@ -14,8 +14,18 @@
 </head>
 
 <body onload="mainload()">
-  <div class="topnav"w3-include-html="embeds/topnav.html">
-</div>
+  <body onload="mainload()">
+    <div class="topnav" >
+      <a class="acive" onclick="goto('index.html')">Home</a>
+      <a onclick="goto('topcities.html')">Ranking</a>
+
+
+      <a onclick="goto('about.html')">About</a>
+
+      <a class="sign" onclick="goto('register.html')">Register</a>
+      <a class="sign" onclick="goto('login.html')">Login</a>
+      <a class="sign2" onclick="goto('contact.php')">Contact</a>
+    </div>
     <div class="About">
         <h1>About Astroweather</h1>
         <p>This is a project for IB computer science internal assesment. The objective of this platform is to show meteorological data about astronomical observation in a user friendly manner.

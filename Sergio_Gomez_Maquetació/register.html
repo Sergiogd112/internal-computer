@@ -14,8 +14,18 @@
 </head>
 
 <body>
-  <div class="topnav"w3-include-html="embeds/topnav.html">
-</div>
+  <body onload="mainload()">
+    <div class="topnav" id='topnav'>
+      <a class="acive" onclick="goto('index.html')">Home</a>
+      <a onclick="goto('topcities.html')">Ranking</a>
+
+
+      <a onclick="goto('about.html')">About</a>
+
+      <a class="sign" onclick="goto('register.html')">Register</a>
+      <a class="sign" onclick="goto('login.html')">Login</a>
+      <a class="sign2" onclick="goto('contact.php')">Contact</a>
+    </div>
   <form class="Register" action="loadingreg.php" method="post">
     <h1 class="title">Register</h1>
     <h2>username</h2>
