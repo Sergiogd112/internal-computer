@@ -1,5 +1,4 @@
 <?php
-<?php
 use PHPMailer\src\PHPMailer;
 use PHPMailer\src\Exception;
 
@@ -12,20 +11,18 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.googlemail.com';  //gmail SMTP server
     $mail->SMTPAuth = true;
-    $mail->Username = GMAIL_USERNAME;   //username
-    $mail->Password = GMAIL_PASSWORD;   //password
+    $mail->Username = 'astroweathercs@gmail.com';   //username
+    $mail->Password = 'eR21dEGPHpnU';   //password
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;                    //smtp port
 
-    $mail->setFrom('FROM_EMAIL_ADDRESS', 'FROM_NAME');
-    $mail->addAddress('RECEPIENT_EMAIL_ADDRESS', 'RECEPIENT_NAME');
+    $mail->setFrom('astroweathercs@gmail.com', 'Contact astroweather');
+    $mail->addAddress($_POST['email'], $_POST['name'] . ' ' . $_POST['surname']);
 
-    $mail->addAttachment(__DIR__ . '/attachment1.png');
-    $mail->addAttachment(__DIR__ . '/attachment2.png');
 
     $mail->isHTML(true);
-    $mail->Subject = 'Email Subject';
-    $mail->Body    = '<b>Email Body</b>';
+    $mail->Subject = 'Contact[noreply]';
+    $mail->Body    = $_POST['mess'];
 
     $mail->send();
     echo 'Message has been sent';
