@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/main.css">
+
+
+  <link rel="stylesheet" href="css/liginstyle.css">
+  <script src="js/login.js" charset="utf-8"></script>
+  <script src="js/include.js" charset="utf-8"></script>
+  <script src="js/topnav.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <body onload="mainload()">
+    <div class="topnav" id='topnav'>
+      <a class="acive" onclick="goto('index.html')">Home</a>
+      <a onclick="goto('topcities.html')">Ranking</a>
+
+
+      <a onclick="goto('about.html')">About</a>
+
+      <a class="sign" onclick="goto('register.html')">Register</a>
+      <a class="sign" onclick="goto('login.html')">Login</a>
+      <a class="sign2" onclick="goto('contact.php')">Contact</a>
+    </div>
+
+  <form id="Login" onsubmit="login(); return false;">
+    <h1 class="title">Login</h1>
+    <h2>username or email</h2>
+    <input type="text" name="logname" value="">
+    <h2>password</h2>
+    <input type="password" name="password" value="">
+    <br></br>
+    <p id="error"></p>
+    <input type="submit" name="" value="Login">
+  </form>
+  <script>
+  includeHTML();
+  </script>
+</body>
+
+</html>
