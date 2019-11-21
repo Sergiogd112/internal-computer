@@ -15,7 +15,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM Contact";
+$sql = "SELECT * FROM Contact WHERE archived=0";
 $result = $conn->query($sql);
 $data=[];
 if ($result) {
@@ -25,6 +25,7 @@ if ($result) {
         $d['surname']=$row['surname'];
         $d['email']=$row['email'];
         $d['mess']=$row['message'];
+        $d['arch']=$row['archived'];
         $data[$row['id']]=$d;
     }
     echo json_encode($data);

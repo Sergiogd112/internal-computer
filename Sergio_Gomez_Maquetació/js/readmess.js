@@ -35,10 +35,10 @@ function updatemessage() {
 
 function del() {
   fetch('backend/delmess.php?id=' +
-    id).then(data => {
-    return data.json();
-  }).then(data => {
+    Object.keys(mess)[n-1]).then(data => {
+  }).then(() => {
     updatemessage();
+    console.log('updating');
 
   });
 
@@ -66,9 +66,10 @@ function sendansw() {
   var data = {
     mess: document.getElementById('Message').value,
     email: mess[keys[n - 1]].email,
-    name: mess[keys[n - 1]].name
-    sname: mess[keys[n - 1]].sname,
+    name: mess[keys[n - 1]].name,
+    sname: mess[keys[n - 1]].sname
   };
+  console.log(mess[keys[n - 1]].email);
   data = JSON.stringify(data);
   console.log(data);
   var xhttp = new XMLHttpRequest();
@@ -100,9 +101,7 @@ function sendansw() {
     }
   }
   var url = "backend/sendansw.php";
-  if (document.URL.includes('btx')) {
-    url = 'https://btx.aula-ee.com/sgomez/internal-computer/Sergio_Gomez_Maquetació/' + url;
-  }
+
   xhttp.open("POST", url, true);
   xhttp.send(data);
 }
