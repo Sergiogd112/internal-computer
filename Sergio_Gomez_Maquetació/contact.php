@@ -43,7 +43,7 @@
     $sql = "SELECT * FROM user_data WHERE username='$lname' AND salt='$salt'";
     $result = $conn->query($sql);
     if ($result->num_rows>0) {
-        echo '<div id="Contact" >        <h1 id="name">Pepe papa</h1>        <h1 id="email">pepepapa@crisp.chip</h1>        <p id="mess">  Dummy patata messag</p>     <div id="answf">   <button type="button" name="next" id="next" onclick="next()">Next</button>        <button type="button" name="delete" id="del" onclick="del()">Delete</button>        <button type="button" name="answer" id="answ" onclick="answ()">Answer</button>        <div id="answf"></div></div>';
+        echo '<div id="Contact" >        <h1 id="name">Pepe papa</h1>        <h1 id="email">pepepapa@crisp.chip</h1>        <p id="mess">  Dummy patata messag</p>     <div id="answf">   <button type="button" name="next" id="next" onclick="next()">Next</button>        <button type="button" name="delete" id="del" onclick="del()">Archive</button>        <button type="button" name="answer" id="answ" onclick="answ()">Answer</button>        <div id="answf"></div></div>';
     } else {
       echo '<div id="Contact"><form id="Contactform" onsubmit="send()"><h1 class="title">Contact</h1><h2>Email</h2><input type="text" name="username" value="pepepapa@crisp.chip"><h2>Name</h2><input type="text" name="name" value="Pepe"><h2>Surname</h2><input type="text" name="surname" value="papa"><h2>Message</h2><textarea name="message" cols="50" rows="10" id="Message"></textarea><br></br><p id="error"></p><br><br></form><button type="button" name="Send" onclick="sendmess()">Send</button></div>';
     }
