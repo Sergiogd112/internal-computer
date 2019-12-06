@@ -64,7 +64,7 @@ function load() {
           q = getq(windGust, windSpeed, cloudCover, precipProbability, visibility);
           setq(q);
           summarydiv.innerHTML = summary;
-          oval.innerHTML = (cloudCover * 100) + '%';
+          oval.innerHTML = Math.floor(cloudCover * 100) + '%';
           hval.innerHTML = Math.floor(humidity * 1000) / 10 + '%';
           pval.innerHTML = pressure + ' hPa'
           let celsius = (temperature - 32) * (5 / 9);
