@@ -118,9 +118,11 @@ def label_order_mode(array):
 # email sender
 
 
-def send_email(femail='', password='', server='smtp.gmail.com' temail=[], heather=None, text='', atatchemnts=''):
+def send_email(femail='', password='', server='smtp.gmail.com', temail=[], heather=None, text='', atatchemnts=''):
 
     print(femail, arrayparser(temail), heather, text, arrayparser(atatchemnts))
+    temail=arrayparser(temail)
+    atatchemnts=arrayparser(atatchemnts)
     context = ssl.create_default_context()
     message = MIMEMultipart()
     message["From"] = femail
@@ -130,7 +132,7 @@ def send_email(femail='', password='', server='smtp.gmail.com' temail=[], heathe
 
     # Add body to email
     message.attach(MIMEText(text, "plain"))
-    try:
+    if(atatchemnts[0]!=''):
         for filename in atatchments:
             with open(filename, "rb") as attachment:
                 # Add file as application/octet-stream
@@ -148,12 +150,11 @@ def send_email(femail='', password='', server='smtp.gmail.com' temail=[], heathe
 
             # Add attachment to message and convert message to string
             message.attach(part)
-    except Exception():
-        print(Exception())
+
     text = message.as_string()
     with smtplib.SMTP_SSL(server, port, context=context) as server:
         server.login(femail, password)
-        server.sendmail(sender_email, receiver_email, text)
+        server.sendmail(femail, ','.join(temail), text)
 
 
 # parser that converst an string to a list. Ex: '[potato,potato]' to
