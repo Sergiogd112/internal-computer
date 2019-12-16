@@ -20,6 +20,8 @@ lchar = 'faehpst'
 
 
 def check_prefix(array):
+    if(array[1] in helpl):
+        return 0
     n = len(array) // 2
     for i in range(len(array) // 2):
         if (not(array[i * 2] in labels)):
@@ -48,26 +50,27 @@ def check_prefix(array):
 
 
 def showhelp():
-    help = '\npython3 mailer.py [useremail][heather][text][atachments]\n' +\
-             '                  or [-e usermail][-h heather][-t text][-a atatchment]\n' + \
-             '                  or [-ehta][elements in orther of expression]\n\n\n' + \
-             '-?                Shows this menu\n' + \
-             '-a                atatchemnt path as an array of strings\n' +\
-             '-e                array of reciever emails\n' +\
-             '-f                email of the sender\n' + \
-             '-h                heather\n' + \
-             '--h               Shows this menu\n' + \
-             '-help/--help      Shows this menu\n' + \
-             '-p                Password of the sender\n' + \
-             '-s                smtp server url' + \
-             '-t                text for the mail\n'
+    help = '\npython3 mailer.py [useremail][header][text][atachments]\n' +\
+        '                  or [-e usermail][-h header][-t text][-a atatchment]\n' + \
+        '                  or [-ehta][elements in orther of expression]\n\n\n' + \
+        '-?                Shows this menu\n' + \
+        '-a                attachment path as an array of strings\n' +\
+        '-e                array of reciever emails\n' +\
+        '-f                email of the sender\n' + \
+        '-h                header\n' + \
+        '--h               Shows this menu\n' + \
+        '-help/--help      Shows this menu\n' + \
+        '-p                Password of the sender\n' + \
+        '-s                smtp server url' + \
+        '-t                text for the mail\n'+\
+        "Example: python3 mailer.py 'youremail@mail.com' 'passwordforyouraccount' 'smpt.server.url' ['email','of','the','recievers'] 'header' ['path','to','each','of','the','attachemnts']"
     print(help)
 
 
 # selects the parsing funtion depending of the value returned by check_prefix
 def selectmode(val, array):
     if (val == 0):
-        pass
+        showhelp()
     elif(val == 1):
         preordermode(array)
     elif(val == 2):
@@ -77,10 +80,12 @@ def selectmode(val, array):
     else:
         raise("Undefined mode: the mode selected doesn't exist")
 # parses the array by orther: email of the sender, list of emails of who
-# recieves the email, heather, text and the list of atatchemnts
+# recieves the email, header, text and the list of attachments
 
 
 def preordermode(array):
+    print((array[0], array[1], array[2],
+               array[3], array[4], array[5], array[6]))
     send_email(array[0], array[1], array[2],
                array[3], array[4], array[5], array[6])
 
@@ -118,21 +123,21 @@ def label_order_mode(array):
 # email sender
 
 
-def send_email(femail='', password='', server='smtp.gmail.com', temail=[], heather=None, text='', atatchemnts=''):
+def send_email(femail='', password='', server='smtp.gmail.com', temail=[], header=None, text='', attachments=''):
 
-    print(femail, arrayparser(temail), heather, text, arrayparser(atatchemnts))
-    temail=arrayparser(temail)
-    atatchemnts=arrayparser(atatchemnts)
+    print('\n\n',femail, arrayparser(temail), header, text, arrayparser(attachments),'\n\n')
+    temail = arrayparser(temail)
+    attachments = arrayparser(attachments)
     context = ssl.create_default_context()
     message = MIMEMultipart()
     message["From"] = femail
     message["To"] = ','.join(temail)
-    message["Subject"] = heather
+    message["Subject"] = header
     message["Bcc"] = ','.join(temail)  # Recommended for mass emails
 
     # Add body to email
     message.attach(MIMEText(text, "plain"))
-    if(atatchemnts[0]!=''):
+    if(attachments[0] != ''):
         for filename in atatchments:
             with open(filename, "rb") as attachment:
                 # Add file as application/octet-stream
@@ -145,8 +150,7 @@ def send_email(femail='', password='', server='smtp.gmail.com', temail=[], heath
             # Add header as key/value pair to attachment part
             part.add_header(
                 "Content-Disposition",
-                f"attachment; filename= {filename}",
-            )
+                'attachment; filename='+filename)
 
             # Add attachment to message and convert message to string
             message.attach(part)
@@ -157,12 +161,13 @@ def send_email(femail='', password='', server='smtp.gmail.com', temail=[], heath
         server.sendmail(femail, ','.join(temail), text)
 
 
-# parser that converst an string to a list. Ex: '[potato,potato]' to
+# parser that converts an string to a list. Ex: '[potato,potato]' to
 # ['potato','potato']
 
 
 def arrayparser(str):
+    print(str,str[1:-2].split(','))
     return str[1:-2].split(',')
 
-
+print('\n\n')
 selectmode(check_prefix(sys.argv[1:]), sys.argv[1:])

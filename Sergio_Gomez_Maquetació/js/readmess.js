@@ -4,6 +4,12 @@ var mess;
 var keys;
 var n;
 
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
+
 function getmessages(start, end) {
   return fetch(url + '?start=' + start + '&end=' + end).then(data => {
     return data.json()
@@ -70,7 +76,6 @@ function sendansw() {
     sname: mess[keys[n - 1]].sname
   };
   console.log(mess[keys[n - 1]].email);
-  data = JSON.stringify(data);
   console.log(data);
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -101,9 +106,9 @@ function sendansw() {
     }
   }
   var url = "backend/sendansw.php";
-
-  xhttp.open("POST", url, true);
-  xhttp.send(data);
+  console.log(data.mess.replaceAll('\n','\\n'));
+  xhttp.open("POST", url+'?email='+data.email+'&mess='+encodeURI(data.mess), true);
+  xhttp.send('?data='+data);
 }
 
 function cancelansw() {

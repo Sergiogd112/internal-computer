@@ -3,9 +3,11 @@ $lat=$_POST["lat"];
 $lon=$_POST["lon"];
 
 $servername = "localhost";
-$usr = "sgomez";
-$pass = "sgomez";
-$dbname = "sgomez_";
+
+include 'config.php';
+$usr = $dbuser;
+$pass = $dbpass;
+$dbname = $dbname;
 
 
 
@@ -18,8 +20,7 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM History WHERE lat='$lat' OR lon='$lon'";
 $result = $conn->query($sql);
-echo $sql;
-echo "\n";
+
 if ($result->num_rows>0)
 {
   $row=$result->fetch_assoc();

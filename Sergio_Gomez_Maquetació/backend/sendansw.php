@@ -1,41 +1,33 @@
 <?php
-echo "in";
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;  /* Exception class. */
-require 'PHPMailer/src/Exception.php';  /* The main PHPMailer class. */
-require 'PHPMailer/src/PHPMailer.php';  /* SMTP class, needed if you want to use SMTP. */
-require 'PHPMailer/src/SMTP.php';
-$email = new PHPMailer(); /* ... */
+echo "in\n" . "\n---\n";
+//$data=json_decode(urldecode($_GET['data']), true);
+$email=$_GET['email'];
+$mess=urldecode($_GET['mess']);
+$command=str_replace("\n","",shell_exec("which python3"))." " . "./mailer.py astroweathercs@gmail.com eR21dEGPHpnU smtp.gmail.com [". $email . ",] \"Contact Astroweather CS\" \"" . $mess . "\" []";
+//$command=str_replace("\n","\\n",$command);
+echo $email . "\n-------------------------------------------------------\n";
+echo $command . "\n-------------------------------------------------\n";
+$descriptorspec = array(
+   0 => array("pipe", "r"),  // stdin
+   1 => array("pipe", "w"),  // stdout
+   2 => array("pipe", "w"),  // stderr
+);
 
-try {
-  echo "0";
-    $mail->IsSMTP(); // enable SMTP
-    echo "0.5";
-    $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-    echo "1";
-    $mail->SMTPAuth = true; // authentication enabled
-    $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for Gmail
-    $mail->Host = "smtp.gmail.com";
-    $mail->Port = 465; // or 587
-    echo "4";
-    $mail->setFrom('astroweathercs@gmail.com', 'Contact astroweather');
-    $mail->addAddress($_POST['email'], $_POST['name'] . ' ' . $_POST['surname']);
-    echo "5";
+$process = proc_open($command, $descriptorspec, $pipes, dirname(__FILE__), null);
 
-    $mail->isHTML(true);
-    $mail->Subject = 'Contact[noreply]';
-    $mail->Body    = $_POST['mess'];
+$stdout = stream_get_contents($pipes[1]);
+fclose($pipes[1]);
 
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-  try {
-    echo "6";
-    echo 'Message could not be sent. Mailer Error: '. $mail->ErrorInfo;
-  } catch (Exception $e) {
-    echo "7";
-  }
+$stderr = stream_get_contents($pipes[2]);
+fclose($pipes[2]);
+echo "stdout : \n";
+var_dump($stdout);
 
-
-}
+echo "stderr :\n";
+var_dump($stderr);
+echo $process. "\n-------------------------------------------------\n";
+var_dump($output);
+echo "\n-------------------------------------------------\n";
+echo shell_exec("pwd") . "\n-------------------------------------------------\n";
+echo shell_exec("which python3") . "\n-------------------------------------------------\n";
  ?>

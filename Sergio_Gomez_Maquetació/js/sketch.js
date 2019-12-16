@@ -61,7 +61,7 @@ function draw() {
     fill(255, 0, 200, 100);
     const zoom = trainMap.zoom();
     const scl = pow(2, zoom); // * sin(frameCount * 0.1);
-    ellipse(pix.x, pix.y, loc[country].diameter * scl);
+    ellipse(pix.x, pix.y, loc[country].diameter * scl/2);
   }
 
 

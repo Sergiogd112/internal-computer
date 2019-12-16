@@ -6,9 +6,10 @@ $mess=$_POST["message"];
 
 
 $servername = "localhost";
-$usr = "sgomez";
-$pass = "sgomez";
-$dbname = "sgomez_";
+include 'config.php'
+$usr = $dbuser;
+$pass = $dbpass;
+$dbname = $dbname;
 
 
 echo 'connecting';

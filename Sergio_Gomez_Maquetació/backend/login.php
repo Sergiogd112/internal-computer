@@ -3,9 +3,10 @@ $lname=$_POST["logname"];
 $pss=$_POST["password"];
 
 $servername = "localhost";
-$usr = "sgomez";
-$pass = "sgomez";
-$dbname = "sgomez_";
+include 'config.php';
+$usr = $dbuser;
+$pass = $dbpass;
+$dbname = $dbname;
 
 
 

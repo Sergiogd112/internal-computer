@@ -15,6 +15,7 @@
   background-color: rgb(20, 20, 20);
   overflow: hidden;
   grid-area: topnav;
+  height: 50px;
 }
 
 .topnav a {
@@ -61,7 +62,6 @@
 }
 
 .topnav a.sign2 {
-  background-color: #333;
   color: white;
   float: right;
 }

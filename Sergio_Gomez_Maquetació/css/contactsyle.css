@@ -23,7 +23,7 @@ body {
 
 #Contact {
   grid-area: Register;
-  background-color: rgb(1, 1, 60);
+  background-color: rgb(1, 1, 100);
   border-radius: 1%;
   padding: 5%;
 }

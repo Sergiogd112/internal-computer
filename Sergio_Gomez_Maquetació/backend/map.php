@@ -1,9 +1,9 @@
 <?php
 $servername = "localhost";
-$usr = "sgomez";
-$pass = "sgomez";
-$dbname = "sgomez_";
-
+include 'config.php';
+$usr = $dbuser;
+$pass = $dbpass;
+$dbname = $dbname;
 
 // Create connection
 $conn = new mysqli($servername, $usr, $pass, $dbname);
