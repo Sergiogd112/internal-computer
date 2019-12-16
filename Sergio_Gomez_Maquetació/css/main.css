@@ -51,12 +51,12 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: rgb(1, 1, 60);
+  background-color: rgb(1, 1, 100);
   color: white;
 }
 
 .topnav a.sign {
-  background-color: rgb(1, 1, 60);
+  background-color: rgb(1, 1, 100);
   color: white;
   float: right;
 }
