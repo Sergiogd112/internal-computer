@@ -1,5 +1,4 @@
 <?php
-$servername = "localhost";
 include 'config.php';
 $usr = $dbuser;
 $pass = $dbpass;

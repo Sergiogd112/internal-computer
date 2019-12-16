@@ -1,7 +1,6 @@
 <?php
 $dbpass="sgomez";
 $dbuser="sgomez";
-$dbname="_sgomez";
+$dbname="sgomez_";
 $servername="localhost";
-
  ?>

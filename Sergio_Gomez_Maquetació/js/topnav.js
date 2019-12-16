@@ -33,8 +33,6 @@ function navtype() {
 
           <a class="sign2" onclick="goto('contact.php')">Contact</a>`;
       body.innerHTML = text;
-      console.log(text);
-
   }
 }
 

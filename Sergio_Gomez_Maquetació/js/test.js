@@ -24,7 +24,6 @@ function load() {
   fetch('https://www.meteoblue.com/en/server/search/query3?query=basel').then(locdata => {
     return locdata.json();
   }).then(locdata => {
-    console.log(locdata);
   });
 
 
@@ -34,7 +33,6 @@ function load() {
       lat = position.coords.latitude;
       const meteobluebase = `https://www.meteoblue.com/en/weather/api/show/apikey/d9edb6a08987&lat=${lat}&lon=${long}&asl=15`;
       const apidark = `${proxy}https://api.darksky.net/forecast/b9dd7cda13788fa81e8c8062c4aedc28/${lat},${long}`;
-      console.log('in')
       sendloc(Math.round(lat * 10), Math.round(long * 10));
       document.getElementById('longitude').innerHTML = "Longitude: " + (Math.round(long * 100) / 100);
       document.getElementById('latitude').innerHTML = "Latitude: " + Math.round(lat * 100) / 100;
@@ -47,7 +45,6 @@ function load() {
           return data.json();
         })
         .then(data => {
-          console.log(data);
           const {
             temperature,
             humidity,
@@ -91,7 +88,6 @@ function load() {
             temp[i] = Math.floor(temp[i] * 10) / 10
           }
 
-          console.log(qs);
           var pdata = {
             x: hours,
             y: precp,
@@ -102,7 +98,7 @@ function load() {
             textfont: {
               family: 'sans serif',
               size: 18,
-              color: 'rgb(100, 153, 255)'
+              color: 'rgb(200, 200, 255)'
             }
           };
           var layout = {
@@ -142,7 +138,7 @@ function load() {
             textfont: {
               family: 'sans serif',
               size: 18,
-              color: 'rgb(100, 153, 255)'
+              color: 'rgb(200, 200, 255)'
             }
           };
           var layout = {
@@ -177,7 +173,6 @@ function load() {
 
 
           //display the forecast
-          console.log(mode, temp, tempc, celsius, t);
           mode = changetmode(mode, temp, tempc, celsius, t);
           // Set DOM Elements from the API
           //setIcons(data.currently.icon, document.querySelector('.icon'));
@@ -216,6 +211,7 @@ function load() {
     if (mode == "f") {
       temperatureDegree.innerHTML = Math.floor(celsius) + 'ºC';
       var trace1 = {
+
         x: hours,
         y: datac,
         line: {
@@ -225,10 +221,11 @@ function load() {
         textfont: {
           family: 'sans serif',
           size: 18,
-          color: 'rgb(100, 153, 255)'
+          color: 'rgb(200, 200, 255)'
         }
       };
       var layout = {
+        title:'Temperature',
         margin: {
           l: 50,
           r: 50,
@@ -266,11 +263,12 @@ function load() {
         textfont: {
           family: 'sans serif',
           size: 18,
-          color: 'rgb(100, 153, 255)'
+          color: 'rgb(200, 200, 255)'
         }
         //        hoverinfo: ‘y+text’
       };
       var layout = {
+        title:'Temperature',
         margin: {
           l: 50,
           r: 50,
@@ -323,23 +321,17 @@ function getq(ws, wg, cc, pp, vb) {
 }
 
 function setq(q) {
-  console.log(q);
   var elem = document.getElementById("myBar");
   elem.style.width = q * 10 + '%';
-  console.log(q);
   elem.innerHTML = q * 10 + '%';
 
 }
 
 function sendloc(lat, lon) {
-  console.log('inf');
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-    console.log('in');
     if (this.readyState == 4 && this.status == 200) {
       var resp = this.responseText;
-      console.log('resp:', resp);
-
     }
   }
 
