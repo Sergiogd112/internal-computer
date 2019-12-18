@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    padding-bottom: 0px;
+}
+
+html {
+    height: 100%;
+}
+
+.header {
+    border: 1px red;
+    padding: 15px;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-rows:1fr 1fr 15fr 1fr;
+    grid-template-areas: "topnav"
+        "blank"
+        "About"
+        "about";
+}
+
+.about {
+    overflow: hidden;
+    font-size: 80%;
+    grid-area: about;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 75%;
+}
+
+.about div.copyright {
+    float: left;
+    padding-left: 1%;
+}
+
+.About {
+    grid-area: About;
+    padding: 5%;
+}

@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  border: 1px  red;
+  padding: 15px;
+}
+
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 20fr;
+    grid-template-areas: "topnav topnav   topnav"
+                         ".      map        .";
+
+}
+
+.Contact{
+    grid-area: Register;
+}
+h1{
+    align-self: center;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-top: -10px;
+    border: 0;
+    width:100%;
+    color: white;
+    /* correct offset on first border spacing if desired */
+}
+.head{
+    color: black;
+}
+
+td {
+    border: solid 0px #000;
+    border-style: solid none;
+    padding: 10px;
+    background-color: rgb(1, 1, 60);
+}
+#map{
+  grid-area: map;
+}
+td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+canvas {
+  display: block;
+  position: static;
+}
