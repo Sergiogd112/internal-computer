@@ -37,7 +37,10 @@ if ($result->num_rows>0)
     $resp['satus']=2;
 }
 echo json_encode($resp);
-mysqli_free_result($res);
-
+try {
+  mysqli_free_result($res);
+} catch (\Exception $e) {
+  echo "";
+}
 
  ?>

@@ -26,6 +26,10 @@ echo $sql;
 $res = $conn->query($sql);
 echo $res;
 
-mysqli_free_result($res);
+try {
+  mysqli_free_result($res);
+} catch (\Exception $e) {
+  echo "";
+}
 echo 1;
 ?>

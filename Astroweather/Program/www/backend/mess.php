@@ -31,4 +31,9 @@ if ($result) {
     }
     echo json_encode($data);
 }
+try {
+  mysqli_free_result($res);
+} catch (\Exception $e) {
+  echo "";
+}
 ?>

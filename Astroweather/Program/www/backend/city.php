@@ -38,6 +38,11 @@ if ($result->num_rows>0)
 $res = $conn->query($sql1);
  echo $result;
 }
-mysqli_free_result($res);
+try {
+  mysqli_free_result($res);
+} catch (\Exception $e) {
+  echo "";
+}
+
 
  ?>

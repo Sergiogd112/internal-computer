@@ -1,6 +1,6 @@
 <?php
-$dbpass="sgomez";
-$dbuser="sgomez";
-$dbname="sgomez_";
-$servername="localhost";
+$dbpass="astroweather";
+$dbuser="astroweather";
+$dbname="astroweather";
+$servername="db";
  ?>

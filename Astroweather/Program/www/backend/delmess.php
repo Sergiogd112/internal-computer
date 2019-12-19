@@ -20,5 +20,8 @@ $result = $conn->query($sql);
 echo $sql;
 echo "\n";
 echo $result;
-mysqli_free_result($res);
-?>
+try {
+  mysqli_free_result($res);
+} catch (\Exception $e) {
+  echo "";
+}?>
