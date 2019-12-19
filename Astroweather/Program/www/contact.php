@@ -46,8 +46,7 @@
     } else {
       echo '<div id="Contact"><form id="Contactform" onsubmit="send()"><h1 class="title">Contact</h1><h2>Email</h2><input type="text" name="username" id="email"><h2>Name</h2><input type="text" name="name" id="name"><h2>Surname</h2><input type="text" name="surname" id ="surname"><h2>Message</h2><textarea name="message" cols="50" rows="10" id="Message"></textarea><br></br><p id="error"></p><br><br></form><button type="button" name="Send" onclick="sendmess()">Send</button></div>';
     }
-    mysqli_free_result($res);
-   ?>
+     ?>
 
 </body>
 

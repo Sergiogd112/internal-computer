@@ -1,13 +1,11 @@
 <?php
-$start=$_GET["start"];
-$end=$_GET["end"];
+//$start=$_GET["start"];
+//$end=$_GET["end"];
 
-$servername = "localhost";
 include 'config.php';
 $usr = $dbuser;
 $pass = $dbpass;
 $dbname = $dbname;
-
 
 // Create connection
 $conn = new mysqli($servername, $usr, $pass, $dbname);
@@ -31,9 +29,5 @@ if ($result) {
     }
     echo json_encode($data);
 }
-try {
-  mysqli_free_result($res);
-} catch (\Exception $e) {
-  echo "";
-}
+
 ?>
